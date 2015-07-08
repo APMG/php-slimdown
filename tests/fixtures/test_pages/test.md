@@ -1,5 +1,6 @@
 ---
 title: A test slimdown title
+template: test
 
 ---
 

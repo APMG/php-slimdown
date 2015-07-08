@@ -14,6 +14,9 @@ class PageTest extends PHPUnit_Framework_TestCase {
 
   public function testIsSane() {
     $page = new \Slimdown\Page(self::FIXTURES_DIR . '/test_pages/test.md');
+
+    $this->assertEquals('', $page->body());
+    $this->assertEquals('test', $page->get_template());
   }
 
   public function testHandlesNonExistantPage() {
