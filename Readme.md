@@ -5,11 +5,9 @@ via a folder full of Markdown files.
 
 Justin Heideman conceived and built the original version.
 
-[![Build Status](https://travis-ci.org/APMG/php-slimdown.svg?branch=master)](https://travis-ci.org/APMG/php-slimdown)
-
 ## Installation
 
-Add this line to your application's composer.json:
+Add this library to your application's composer.json:
 
 ```json
 {
