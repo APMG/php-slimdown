@@ -1,0 +1,10 @@
+<phpunit>
+  <logging>
+    <log type="coverage-html" target="coverage"/>
+  </logging>
+  <filter>
+    <whitelist processUncoveredFilesFromWhitelist="true">
+      <directory>../lib</directory>
+    </whitelist>
+  </filter>
+</phpunit>
