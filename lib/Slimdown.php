@@ -16,7 +16,7 @@ class Slimdown {
   /**
    * Application version.
    */
-  const VERSION = '1.0.0';
+  const VERSION = '0.1.0';
 
   /**
    * Sets and retrieves global configuration.
