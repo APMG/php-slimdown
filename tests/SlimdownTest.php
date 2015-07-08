@@ -10,19 +10,19 @@ class SlimdownTest extends PHPUnit_Framework_TestCase {
   // .config
   public function testManagesConfiguration() {
     $config = \Slimdown\Slimdown::config(function($c){
-      $c->location = 'blahblahblah';
+      $c->set_location('blahblahblah');
     });
 
-    $this->assertEquals('blahblahblah', $config->location);
+    $this->assertEquals('blahblahblah', $config->get_location());
   }
 
   public function testReturnsConfigAfterSettingIt() {
     \Slimdown\Slimdown::config(function($c){
-      $c->location = 'blahblahblah';
+      $c->set_location('blahblahblah');
     });
 
     $config = \Slimdown\Slimdown::config();
 
-    $this->assertEquals('blahblahblah', $config->location);
+    $this->assertEquals('blahblahblah', $config->get_location());
   }
 }

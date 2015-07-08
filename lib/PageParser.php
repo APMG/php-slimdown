@@ -1,8 +1,5 @@
 <?php
 
-// require 'yaml'
-// require 'kramdown'
-
 namespace Slimdown;
 
 # Internal class to manage parsing the markdown document.
