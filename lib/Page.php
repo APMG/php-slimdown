@@ -2,7 +2,9 @@
 
 namespace Slimdown;
 
-// The model representing a page
+/**
+ * The model representing a page.
+ */
 class Page {
 
   private $absolute_path;
@@ -10,10 +12,12 @@ class Page {
   private $title;
   private $template;
 
-  # Get new page object
-  #
-  # @param [String] absolute_path The absolute path to this document,
-  #   including extension.
+  /**
+   * Get new page object
+   *
+   * @param string $absolute_path The absolute path to this document,
+   *   including extension.
+   */
   function __construct($absolute_path) {
     # Open the markdown file.
     $this->absolute_path = $absolute_path;
@@ -23,23 +27,30 @@ class Page {
     $this->load_headers();
   }
 
-  # The title from the document headers
+  /**
+   * The title from the document headers.
+   */
   public function get_title() {
     return $this->title;
   }
 
-  # The template from the document headers
+  /**
+   * The template from the document headers
+   */
   public function get_template() {
     return $this->template;
   }
 
-  # Get page object by relative path.
-  #
-  # Example:
-  #    Slimdown::Page.find('about/contact')
-  #
-  # @param [String] path relative path to page. Doesn't include extension.
-  # @return [Slimdown::Page] the page corresponding to this path.
+  /**
+   * Get page object by relative path.
+   *
+   * Example:
+   *
+   *     Slimdown::Page.find('about/contact')
+   *
+   * @param string $path Relative path to page. Doesn't include extension.
+   * @return \Slimdown\Page The page corresponding to this path.
+   */
   public static function find($path) {
     # Finds the relative page.
     $config = Slimdown::config();
@@ -48,16 +59,20 @@ class Page {
     return new self("{$loc}/{$path}.md");
   }
 
-  # Get the parsed body
-  #
-  # @return [Kramdown::Document] the parsed Markdown body.
+  /**
+   * Get the parsed body
+   *
+   * @return string The parsed Markdown body as html.
+   */
   public function body() {
     $this->parsed_page->body();
   }
 
-  # The sibling pages to this document.
-  #
-  # @return [Array<Slimdown::Page>] a list of sibling pages.
+  /**
+   * The sibling pages to this document.
+   *
+   * @return \Slimdown\Page[] A list of sibling pages.
+   */
   public function siblings() {
     # List other markdown files in the same folder.
 
@@ -69,9 +84,11 @@ class Page {
     return $folder->pages();
   }
 
-  # The children of this document.
-  #
-  # @return [Array<Slimdown::Page>] a list of child pages.
+  /**
+   * The children of this document.
+   *
+   * @return \Slimdown\Page[] A list of child pages.
+   */
   public function children() {
     # Check to see whether dir exists.
     $folder_str = $this->absolute_path;
@@ -82,9 +99,11 @@ class Page {
     return $folder->pages();
   }
 
-  # The relative path for this document.
-  #
-  # @return [String] the relative path, e.g. 'about/contact'
+  /**
+   * The relative path for this document.
+   *
+   * @return string The relative path, e.g. 'about/contact'
+   */
   public function path() {
     $loc = preg_quote(Slimdown::config()->get_location(), '/');
     $relative = $this->absolute_path;
@@ -94,6 +113,9 @@ class Page {
     return $relative;
   }
 
+  /**
+   * Parse approved headers into properties.
+   */
   private function load_headers() {
     $headers = $this->parsed_page->headers();
     if (isset($headers['title'])) {
