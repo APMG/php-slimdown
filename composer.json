@@ -1,8 +1,20 @@
 {
+    "name": "apmg/slimdown",
+    "description": "Slimdown is a simple library to allow you to easily add static pages to your app via a folder full of Markdown files.",
+    "homepage": "https://github.com/APMG/php-slimdown",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "William Johnston",
+            "email": "wjohnston@mpr.org",
+            "role": "Software Engineer"
+        }
+    ],
     "autoload": {
         "psr-4": {"Slimdown\\": "lib/"}
     },
     "require": {
+      "php": ">=5.4.0",
       "mnapoli/front-yaml": "*"
     },
     "require-dev": {
