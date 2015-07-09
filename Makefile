@@ -1,7 +1,7 @@
 .PHONY: test docs
 
 test:
-		vendor/bin/phpunit -c tests/phpunit.xml tests/
+		vendor/bin/phpunit
 
 docs:
 		vendor/bin/phpdoc -d ./lib -t ./docs
