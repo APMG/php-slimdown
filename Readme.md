@@ -1,5 +1,7 @@
 # Slimdown
 
+**PLEASE NOTE: This library is deprecated and no longer supported.**
+
 Slimdown is a simple library to allow you to easily add static pages to your app
 via a folder full of Markdown files.
 
